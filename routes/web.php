@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MeowController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'show']);
 
-Route::get('/meows', function () {
-    return 'Liste des messages';
-});
+Route::get('/meows', [MeowController::class, 'showPosts']);
 
-Route::get('/meow/{id}', function (int $id) {
-    return "Message {$id}";
-});
+Route::get('/meow/{id}', [MeowController::class, 'showPost']);
