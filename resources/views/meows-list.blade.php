@@ -1,3 +1,19 @@
-<div>
-    Liste des messages.
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        @foreach ($posts as $post)
+        <li>
+            <p>{{ $post->users->name }}</p>
+            <p>{{ $post->created_at }}</p>
+            <p>{{ $post->message }}</p>
+        </li>
+        @endforeach
+    </ul>
+</body>
+</html>
